@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown selecter optimization</title>
+</head>
+<style>
+    #distric,
+    #State {
+        height: 30px;
+        width: 130px;
+    }
+</style>
+
+<body>
+
+    <select id="State">
+        <option id="" value="Select">Select</option>
+        <option id="tamilnadu" value="tamilnadu">Tamil Nadu</option>
+        <option id="kerala" value="kerala">Kerala</option>
+        <option id="andra" value="andra">Andra</option>
+
+    </select>
+
+
+    <select id="distric">
+        <option value="Select">Select</option>
+
+
+
+    </select>
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // let tamilnadu = ["chennai","coimbatore","theni","kaniyakumari"];
+            // let kerala = ["tiruvenda","palakat","azhapulaa"];
+            // let andra = ["kadappa","kondur","nandayal"]
+
+
+
+
+            document.querySelector("#State").addEventListener("change", () => {
+
+                let CheckValue = document.querySelector("#State").value;
+
+                let distric = document.querySelector("#distric");
+
+                let stateCheck = {
+                    tamilnadu: ["chennai", "coimbatore", "theni", "kaniyakumari"],
+                    kerala: ["tiruvenda", "palakat", "azhapulaa"],
+                    andra: ["kadappa", "kondur", "nandayal"]
+                }
+
+
+
+                if ((CheckValue == "tamilnadu") || (CheckValue == "kerala") || (CheckValue == "andra") || (CheckValue == "Select")) {
+                    distric.innerHTML = '';
+
+
+                    stateCheck[CheckValue].forEach(ele => {
+
+                        const newOption = document.createElement("option")
+                        newOption.value = ele;
+                        newOption.text = ele;
+
+                        distric.appendChild(newOption)
+
+                    });
+
+                }
+
+
+
+
+
+
+
+
+            });
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+
+    </script>
+</body>
+
+</html>

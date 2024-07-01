@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown selecter</title>
+</head>
+<style>
+    #distric, #State{
+        height: 30px;
+        width: 130px;
+    }
+</style>
+<body>
+
+<select id="State">
+<option id="" value="Select">Select</option>
+<option id="tamilnadu" value="Tamil-Nadu">Tamil Nadu</option>
+<option id="kerala" value="kerala">Kerala</option>
+<option id="andra" value="Andra">Andra</option>
+
+</select>
+    
+
+<select  id="distric">
+<option value="Select">Select</option>
+  
+
+
+</select>
+
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function () {
+                                         
+   
+
+// let tamilnadu = ["chennai","coimbatore","theni","kaniyakumari"];
+// let kerala = ["tiruvenda","palakat","azhapulaa"];
+// let andra = ["kadappa","kondur","nandayal"]
+
+
+let stateCheck = {
+    tamilnadu: ["chennai","coimbatore","theni","kaniyakumari"],
+    kerala : ["tiruvenda","palakat","azhapulaa"],
+    andra : ["kadappa","kondur","nandayal"]
+}
+
+document.querySelector("#State").addEventListener("change",()=>{
+
+let CheckValue =document.querySelector("#State").value;
+
+let distric=document.querySelector("#distric");
+
+
+if(CheckValue=="Tamil-Nadu"){
+    distric.innerHTML = '';
+    stateCheck.tamilnadu.forEach(ele => {
+
+        const newOption =document.createElement("option")
+        newOption.value=ele;
+        newOption.text=ele;
+        
+        distric.appendChild(newOption)
+        
+    });
+}
+
+else if(CheckValue=="kerala"){
+    distric.innerHTML = '';
+    stateCheck.kerala.forEach(ele => {
+
+        const newOption =document.createElement("option")
+        newOption.value=ele;
+        newOption.text=ele;
+        
+        distric.appendChild(newOption)
+        
+    });
+}
+
+
+else if(CheckValue=="Andra"){
+    distric.innerHTML = '';
+    stateCheck.andra.forEach(ele => {
+
+        const newOption =document.createElement("option")
+        newOption.value=ele;
+        newOption.text=ele;
+        
+        distric.appendChild(newOption)
+        
+    });
+}
+
+else if(CheckValue=="Select"){
+    distric.innerHTML = '';
+  const newOption =document.createElement("option")
+  newOption.value="select";
+  newOption.text="select";
+  distric.appendChild(newOption)
+
+    
+}
+
+
+
+
+
+});
+
+let SlectTamil = document.querySelector(".tamilnadu")
+let SlectKerala = document.querySelector(".kerala")
+let SlectAndra = document.querySelector(".andra")
+
+
+
+            });
+
+
+
+</script>
+</body>
+</html>
